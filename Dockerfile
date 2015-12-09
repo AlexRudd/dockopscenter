@@ -5,7 +5,7 @@ FROM alpine:3.2
 MAINTAINER Alex Rudd <github.com/AlexRudd/dockopscenter/issues>
 
 #OpsCenter Version
-ENV OPSCENTER_VERSION=5.2.2
+ARG OPSCENTER_VERSION=5.2.2
 
 # Expose ports (WebUI, Agent monitoring port)
 EXPOSE 8888 61620
