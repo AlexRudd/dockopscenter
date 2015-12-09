@@ -1,6 +1,6 @@
 name=dockopscenter
 registry=alexrudd
-version=0.1
+version=1.0
 
 default: run
 
@@ -37,4 +37,4 @@ logsf:
 	@docker logs -f `docker ps | grep ${name} | head -n 1 | cut -d ' ' -f 1`
 
 attach:
-	docker exec -ti `docker ps | grep ${name} | head -n 1 | cut -d ' ' -f 1` /bin/bash
+	docker exec -ti `docker ps | grep ${name} | head -n 1 | cut -d ' ' -f 1` /bin/sh
