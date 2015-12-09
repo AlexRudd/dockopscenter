@@ -7,12 +7,10 @@ MAINTAINER Alex Rudd <github.com/AlexRudd/dockopscenter/issues>
 #OpsCenter Version
 ARG OPSCENTER_VERSION=5.2.2
 
-# Expose ports (WebUI, Agent monitoring port)
-EXPOSE 8888 61620
-
 #install full tar
 RUN apk add --update tar
 RUN apk add --update python
+RUN apk add --update ca-certificates
 
 # Download and extract OpsCenter
 RUN mkdir -p /opt/opscenter
