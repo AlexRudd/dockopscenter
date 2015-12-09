@@ -4,16 +4,18 @@ version=0.1
 
 default: run
 
-run:
+run: stop
 	docker run \
 	--name=${name} \
-	-dP \
+	-d \
+	-p 8888:8888 \
 	${registry}/${name}:${version}
 
 runt:
 	docker run \
 	--rm \
-	-tiP \
+	-ti \
+	-p 8888:8888 \
 	${registry}/${name}:${version}
 
 stop:
