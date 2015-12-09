@@ -6,6 +6,7 @@ import pprint
 import re
 import shutil
 import subprocess
+import sys
 
 # Location of OpsCenter executable
 opscenter_exec = ['/bin/sh', '/opt/opscenter/bin/opscenter', '-f']
@@ -20,7 +21,7 @@ parser.add_argument(
     action="store",
     type=str,
     dest="directives",
-    help="comma separated list of '[section]key=value,...' directives")
+    help="comma separated list of '[section]option=value,...' directives")
 # Option to use configfile in provided location (defaults to
 # /opt/opscenter/conf/opscenterd.conf)
 parser.add_argument(
@@ -92,5 +93,6 @@ else:
     print "No options specified, starting with default configuration"
 
 print "Starting OpsCenter!"
+sys.stdout.flush()
 # Start subprocess to run OpsCenter
 subprocess.call(opscenter_exec)
