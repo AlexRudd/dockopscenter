@@ -1,4 +1,5 @@
-# Version 0.1
+#  dockopscenter
+## OpsCenter in a docker
 
 FROM alpine:3.2
 
@@ -11,6 +12,8 @@ ARG OPSCENTER_VERSION=5.2.2
 RUN apk add --update tar
 RUN apk add --update python
 RUN apk add --update ca-certificates
+RUN apk add --update openjdk7-jre
+RUN apk add --update openssh
 
 # Download and extract OpsCenter
 RUN mkdir -p /opt/opscenter
