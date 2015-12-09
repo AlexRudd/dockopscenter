@@ -19,11 +19,11 @@ RUN mkdir -p /opt/opscenter
 RUN wget -O - http://downloads.datastax.com/community/opscenter-$OPSCENTER_VERSION.tar.gz \
   | tar xzf - --strip-components=1 -C "/opt/opscenter";
 
-COPY run_opscenter.sh /
-RUN chmod +x /run_opscenter.sh
+COPY run_opscenter.py /
+RUN chmod +x /run_opscenter.py
 
 # Clean up
 RUN apk del tar
 RUN rm -rf /var/cache/apk/*
 
-ENTRYPOINT ["/run_opscenter.sh"]
+ENTRYPOINT ["/run_opscenter.py"]
