@@ -1,6 +1,6 @@
 name=dockopscenter
 registry=alexrudd
-version=dev
+version=1.3
 
 default: run
 
