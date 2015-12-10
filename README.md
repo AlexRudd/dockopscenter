@@ -10,25 +10,15 @@ A full list of configuration options are available from the [DataStax website.](
 
 ## Issues
 
-* Fails at "Determining ssh fingerprints of new instances." when using OpsCenter to create new cluster. Traceback:
+* Fails at "Determining ssh fingerprints of new instances." if deploying into a subnet which doesnt assign public IPs (only private). This appears to be a bug with OpsCenter.
 ```
-2015-12-09 18:57:50+0000 [] Error determining fingerprints
-Traceback (most recent call last):
+INFO: Node cfdev-0 is now running.
+INFO: Ips for cfdev-0 are: None (public), 10.0.30.82 (private)
+...
+INFO: Determining ssh fingerprints of new instances.
+Error determining fingerprints
+...
 Failure: exceptions.TypeError: sequence item 0: expected string, NoneType found
-2015-12-09 18:57:50+0000 [] ERROR: Fingerprint Detection failed: sequence item 0: expected string, NoneType found sequence item 0: expected string, NoneType found
-File "/opt/opscenter/lib/py-debian/2.7/amd64/twisted/internet/defer.py", line 1018, in _inlineCallbacks
-result = result.throwExceptionIntoGenerator(g)
-File "/opt/opscenter/lib/py-debian/2.7/amd64/twisted/python/failure.py", line 349, in throwExceptionIntoGenerator
-return g.throw(self.type, self.value, self.tb)
-File "build/lib/python2.7/site-packages/opscenterd/cloud/Ec2Launcher.py", line 582, in _determine_fingerprints
-File "/opt/opscenter/lib/py-debian/2.7/amd64/twisted/internet/defer.py", line 1018, in _inlineCallbacks
-result = result.throwExceptionIntoGenerator(g)
-File "/opt/opscenter/lib/py-debian/2.7/amd64/twisted/python/failure.py", line 349, in throwExceptionIntoGenerator
-return g.throw(self.type, self.value, self.tb)
-File "build/lib/python2.7/site-packages/opscenterd/SecureShell.py", line 148, in get_remote_ssh_key_map
-File "/opt/opscenter/lib/py-debian/2.7/amd64/twisted/internet/defer.py", line 1020, in _inlineCallbacks
-result = g.send(result)
-File "build/lib/python2.7/site-packages/opscenterd/SecureShell.py", line 370, in _get_remote_ssh_keys_in_bulk
 ```
 * See the following warnings at start-up, not sure if these are actual problems:
 ```
