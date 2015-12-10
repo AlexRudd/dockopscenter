@@ -12,7 +12,6 @@ ARG OPSCENTER_VERSION=5.2.2
 RUN apk add --update tar
 RUN apk add --update python
 RUN apk add --update ca-certificates
-#RUN apk add --update openjdk7-jre
 RUN apk add --update openssh
 RUN apk add --update openssl
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
+from collections import defaultdict
 import os
 import pprint
 import re
@@ -35,12 +36,14 @@ args = parser.parse_args()
 
 # Default config
 config_location = '/opt/opscenter/conf/opscenterd.conf'
-config_dic = {
-    'authentication': {
-        'enabled': 'False'},
-    'webserver': {
-        'interface': '0.0.0.0',
-        'port': '8888'}}
+
+def tree(): return defaultdict(tree)
+config_dic = tree()
+
+config_dic['authentication']['enabled'] = 'False'
+config_dic['webserver']['interface'] = '0.0.0.0'
+config_dic['webserver']['port'] = '8888'
+
 
 print "Options:"
 print "\t--directives:", args.directives
