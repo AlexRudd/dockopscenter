@@ -12,14 +12,16 @@ ARG OPSCENTER_VERSION=5.2.2
 RUN apk add --update tar
 RUN apk add --update python
 RUN apk add --update ca-certificates
-RUN apk add --update openjdk7-jre
+#RUN apk add --update openjdk7-jre
 RUN apk add --update openssh
+RUN apk add --update openssl
 
 # Download and extract OpsCenter
 RUN mkdir -p /opt/opscenter
 RUN wget -O - http://downloads.datastax.com/community/opscenter-$OPSCENTER_VERSION.tar.gz \
   | tar xzf - --strip-components=1 -C "/opt/opscenter";
 
+# Add start script
 COPY run_opscenter.py /
 RUN chmod +x /run_opscenter.py
 
