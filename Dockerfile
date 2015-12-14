@@ -8,7 +8,7 @@ MAINTAINER Alex Rudd <github.com/AlexRudd/dockopscenter/issues>
 #OpsCenter Version
 ARG OPSCENTER_VERSION=5.2.2
 
-#install full tar
+#install dependancies
 RUN apk add --update tar
 RUN apk add --update python
 RUN apk add --update ca-certificates

@@ -10,7 +10,7 @@ A full list of configuration options are available from the [DataStax website.](
 
 ## Issues
 
-* Fails at "Determining ssh fingerprints of new instances." if deploying into a subnet which doesnt assign public IPs (only private). This appears to be a bug with OpsCenter.
+* Fails at "Determining ssh fingerprints of new instances." if deploying into a subnet which doesnt assign public IPs (only private). This is confirmed to be a bug in OpsCenter that is to be fixed in the next release.
 ```
 INFO: Node cfdev-0 is now running.
 INFO: Ips for cfdev-0 are: None (public), 10.0.30.82 (private)
