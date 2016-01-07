@@ -2,15 +2,17 @@
 [Highly configurable dockerized DataStax OpsCenter](https://hub.docker.com/r/alexrudd/dockopscenter/)
 
 ## Description
-**Current OpsCenter Version: 5.2.2**
+**Current OpsCenter Version: 5.2.3**
 
 Configure DataStax OpsCenter with custom directive overrides or by specifying the location of an alternate config file.
 
 A full list of configuration options are available from the [DataStax website.](https://docs.datastax.com/en/opscenter/5.1/opsc/configure/opscConfigProps_r.html)
 
+Built on top of alpine linux docker image version 3.3
+
 ## Issues
 
-* Fails at "Determining ssh fingerprints of new instances." if deploying into a subnet which doesnt assign public IPs (only private). This is confirmed to be a bug in OpsCenter that is to be fixed in the next release.
+* Fails at "Determining ssh fingerprints of new instances." if deploying into a subnet which doesnt assign public IPs (only private). **This is confirmed to be a bug in OpsCenter that is to be fixed in the next release.**
 ```
 INFO: Node cfdev-0 is now running.
 INFO: Ips for cfdev-0 are: None (public), 10.0.30.82 (private)
@@ -76,9 +78,11 @@ docker build --build-arg OPSCENTER_VERSION=5.2.1 .
 There's also Makefile included for certain convenience methods including building:
 
 ```
-make build
+make build tag=<mytag> ver=<opscenterversion>
 ```
+
+If you don't specify a tag or version, it will default to the latest values already in the Makefile
 
 ## Contributing
 
-Pull requests are welcome. Consider creating an issue to discus the feature before doing the development work, or just fork and create a pull request.
+Pull requests are welcome. Consider creating an issue to discuss the feature before doing the development work, or just fork and create a pull request.
