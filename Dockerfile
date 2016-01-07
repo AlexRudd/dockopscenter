@@ -1,12 +1,12 @@
 #  dockopscenter
 ## OpsCenter in a docker
 
-FROM alpine:3.2
+FROM alpine:3.3
 
 MAINTAINER Alex Rudd <github.com/AlexRudd/dockopscenter/issues>
 
 #OpsCenter Version
-ARG OPSCENTER_VERSION=5.2.2
+ARG OPSCENTER_VERSION=5.2.3
 
 #install dependancies
 RUN apk add --update tar
