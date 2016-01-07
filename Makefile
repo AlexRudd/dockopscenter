@@ -1,6 +1,7 @@
 name=dockopscenter
 registry=alexrudd
-version=1.3
+tag=5.2.3
+ver=5.2.3
 
 default: run
 
@@ -9,26 +10,26 @@ run: stop
 	--name=${name} \
 	-d \
 	-p 8888:8888 \
-	${registry}/${name}:${version}
+	${registry}/${name}:${tag}
 
 runt:
 	docker run \
 	--rm \
 	-ti \
 	-p 8888:8888 \
-	${registry}/${name}:${version}
+	${registry}/${name}:${tag}
 
 stop:
 	docker rm -f `docker ps -a | grep ${name} | head -n 1 | cut -d ' ' -f 1` || true
 
 build:
-	docker build -t ${registry}/${name}:${version} .
+	docker build --build-arg OPSCENTER_VERSION=${ver} -t ${registry}/${name}:${tag} .
 
 pull:
-	docker pull ${registry}/${name}:${version}
+	docker pull ${registry}/${name}:${tag}
 
 push:
-	docker push ${registry}/${name}:${version}
+	docker push ${registry}/${name}:${tag}
 
 logs:
 	@docker logs `docker ps | grep ${name} | head -n 1 | cut -d ' ' -f 1`
