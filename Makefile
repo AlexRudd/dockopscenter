@@ -1,7 +1,7 @@
 name=dockopscenter
 registry=alexrudd
-tag=5.2.3
-ver=5.2.3
+tag=5.2.4
+ver=5.2.4
 
 default: run
 
