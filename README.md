@@ -2,7 +2,7 @@
 [Highly configurable dockerized DataStax OpsCenter](https://hub.docker.com/r/alexrudd/dockopscenter/)
 
 ## Description
-**Current OpsCenter Version: 5.2.3**
+**Current OpsCenter Version: 5.2.4**
 
 Configure DataStax OpsCenter with custom directive overrides or by specifying the location of an alternate config file.
 
